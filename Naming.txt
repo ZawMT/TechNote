@@ -10,4 +10,7 @@ Mis - Miscellaneous
 Second three letters : Topic / Detail 
 Ajs - AngularJS
 Ang - Angular
+Dic - Dictionary (Short info about terms and terminologies)
 Njs - NodeJS
+
+Finally, the short description about the file, eg. MisDicGeneral.txt in the Text folder.

@@ -1,0 +1,61 @@
+ASM
+Application Security Manager : A web application firewall, a product of a American company called 'F5 Networks'
+
+CMM
+Capability Maturity Model (CMM) is a development model created after study of data collected from organizations that contracted with the U.S. Department of Defense, who funded the research. The term 'maturity' relates to the degree of formality and optimization of processes, from ad hoc practices, to formally defined steps, to managed result metrics, to active optimization of the processes. The model's aim is to improve existing software development processes, but it can also be applied to other processes.
+
+CLR
+Common Language Runtime : The virtual machine component of Microsoft .NET Framework which manages the execution of .NET programs.
+
+dogfooding
+(of a company's staff) use a product or service developed by that company so as to test it before it is made available to customers. Simlarly, it is phrased as follows: self-hosting, icecreaming, eating our own cooking, drinking our own champagne
+
+DPIA
+Data Protection Impact Assessment : A process to help you identify and minimise the data protection risks of a project
+
+ELB
+Enterprise Load Balancer
+=> GTM / LTM 
+
+GRASP
+General Responsibility Assignment Software Patterns (or Principles), consist of guidelines for assigning responsibility to classes and objects in object-oriented design
+
+GTM
+Global Traffic Manager
+=> ELB / LTM 
+
+JDO
+Java Data Objects : A specification of Java object persistence 
+=> POJO
+
+JSR
+Java Specification Requests : Basically change requests for the Java language, libraries and other components. It's all part of the Java Community Process, whereby interested parties can put forward their ideas for enhancements and (hopefully) have them taken up and acted upon.
+
+LLN
+Law of Large Numbers : In probability theory, LLN is a theorem that describes the result of performing the same experiment a large number of times. According to the law, the average of the results obtained from a large number of trials should be close to the expected value, and will tend to become closer as more trials are performed.
+
+LSP
+Liskov substitution principle: Let f(x) be a property provable about objects 'x' of type 'T'. Then f(y) should be true for objects 'y' of type S where S is a subtype of T.
+
+LTM
+Local Traffic Manager : A product of a American company called 'F5 Networks' for local load balancing based on a full-proxy architecture. 
+=> ELB / GTM 
+
+multi-tenancy
+'software multitenancy' refers to a software architecture in which a single instance of software runs on a server and serves multiple tenants. A tenant is a group of users who share a common access with specific privileges to the software instance. With a multitenant architecture, a software application is designed to provide every tenant a dedicated share of the instance - including its data, configuration, user management, tenant individual functionality and non-functional properties. Multitenancy contrasts with multi-instance architectures, where separate software instances operate on behalf of different tenants.
+
+PCI
+Payment Card Industry
+
+POCO
+Plain Old CLR/Class Object : a simple object created in the .NET Common Language Runtime (CLR) that is unencumbered by inheritance or attributes 
+=> CLR
+
+POJO
+Plain Old Java Object
+
+WCF
+Windows Communication Foundation
+
+WPF
+Windows Presentation Foundation
