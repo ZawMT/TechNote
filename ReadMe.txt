@@ -1,0 +1,1 @@
+This is a collection of my notes which I did while studying the IT-related stfuff. For easy browsing, a naming scheme is used.

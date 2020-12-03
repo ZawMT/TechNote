@@ -1,0 +1,13 @@
+Files are named in a way which will help me to browse / search easily to get the info I need as quickly as possible :) ... so the arrangement is very personal / subjective.
+
+First three letters : Overall / Subject
+Jav - Java
+Jvs - JavaScript
+Lnx - Linux
+Mcs - Microsoft
+Mis - Miscellaneous
+
+Second three letters : Topic / Detail 
+Ajs - AngularJS
+Ang - Angular
+Njs - NodeJS
