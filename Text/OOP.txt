@@ -1,0 +1,2 @@
+Association
+The relationship between the two objects is known as //Association//, for example, one object will use the functionality provided by another object.
