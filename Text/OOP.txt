@@ -1,2 +1,23 @@
+Abstraction
+Abstraction is a kind of conceptualization of an object or an entity hiding the unnecessary details. For example, a //car// is viewed as //car// rather than how it is composed or how it functions in detail.
+=> Encapsulation
+
+Aggregation
+It is an association in OOP in which an object exists as an item of a group, but it also can exists standalone as well. For example, a //student// which can be a part of //ClassRoom//. In UML it is drawn as a empty diamond.
+=> Association
+
+
 Association
 The relationship between the two objects is known as //Association//, for example, one object will use the functionality provided by another object.
+=> Composition, Aggregation
+
+Composition
+It is an association in OOP in which an object exists as a part of another object (main object) to perform a function. For example, a //car// is a main object and it is a composition of the objects such as engine, wheels, and so on. In UML it is drawn as a filled diamond.
+=> Association
+
+Encapsulation
+Encapsulation can be defined as wrapping up the data under a single unit under a protective shield that will prevent the direct access.
+=> Abstraction
+
+Polymorphism
+It means //having many forms//. A //human// can be an //employee// at the same time a //teacher//. Therefore, a parent object reference can be used to refer to a child object.
