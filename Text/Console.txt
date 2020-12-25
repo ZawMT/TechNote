@@ -1,0 +1,5 @@
+sw_version
+Apple : To check Apple OS version
+
+system_profiler SPSoftwareDataType
+Apple : To check Apple OS version and Kernel version
