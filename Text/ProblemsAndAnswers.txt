@@ -1,0 +1,18 @@
+Problem:
+WildFly
+Using port 80
+In Linux
+Reason:
+Linux and Unix servers reserved the port 1024 and the smaller to use only by the root user. 
+Solution:
+Route port 80 to 8080 as follows:
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+Annex1:
+The usage of the current routing can be listed as follows:
+iptables -t nat --line-numbers -n -L
+A mapping can be deleted as follows:
+iptables -t nat -D PREROUTING LINE_NUMBER_FROM_THE_LISTING
+Annex2:
+Though I start the wildfly as the root user, it didn't resolve the issue. When the wildfly is started, there might be a representative user behind.
+
+
