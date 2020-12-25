@@ -1,0 +1,58 @@
+The following steps are from this link: https://vitux.com/install-and-configure-wildfly-jboss-on-ubuntu/ where the explanation for the steps are given in more details.
+
+1: Update the current applications to the most recent
+sudo apt-get update
+2: Install JDK
+sudo apt-get install default-jdk
+3: Add a user group which will run the wildfly
+sudo groupadd -r wildfly
+4: Add user to the group created above
+sudo useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
+5: Choose a version number to install and set it to a variable 
+WildFly_Version=16.0.0.Final 
+6: Download the targeted version to the tmp folder
+wget https://download.jboss.org/wildfly/$WildFly_Version/wildfly-$WildFly_Version.tar.gz -P /tmp
+7: Unzip the downloaded WildFly to the opt folder
+sudo tar xf /tmp/wildfly-$WildFly_Version.tar.gz -C /opt/
+8: Create a symbolic link to the installed WildFly folder
+sudo ln -s /opt/wildfly-$WildFly_Version /opt/wildfly
+9: Give access the installed WildFly folder to wildfly user group 
+sudo chown -RH wildfly: /opt/wildfly
+10: Create wildfly folder where the configuration file for WildFly will be kept
+sudo mkdir -p /etc/wildfly
+11: Copy the wildfly configuration file (from the installed folder to the folder created above)
+sudo cp /opt/wildfly/docs/contrib/scripts/systemd/wildfly.conf /etc/wildfly/
+12: Copy the wildfly launch file to the bin folder
+sudo cp /opt/wildfly/docs/contrib/scripts/systemd/launch.sh /opt/wildfly/bin/
+13: Make the script in the bin folder runnable
+sudo sh -c 'chmod +x /opt/wildfly/bin/*.sh'
+14: Copy wildfly.service file to the /etc/systemd/system folder
+sudo cp /opt/wildfly/docs/contrib/scripts/systemd/wildfly.service /etc/systemd/system/
+15: Reload the systemctl daemon
+sudo systemctl daemon-reload
+16: WildFly can be started 
+sudo systemctl start wildfly
+17: The running status of WildFly can be checked
+sudo systemctl status wildfly
+
+Configure the wildfly server
+1: Allow the traffic on 8080
+sudo ufw allow 8080/tcp
+After this, the access to the wildfly server should work @ http://IP_ADDRESS:8080
+
+Configure the wildfly admin console (http://IP_ADDRESS:9990)
+1: Add an admin user 
+sudo /opt/wildfly/bin/add-user.sh
+Follow the process accordingly
+2: Add this line in wildfly.conf => WILDFLY_CONSOLE_BIND=0.0.0.0
+sudo nano /etc/wildfly/wildfly.conf
+3: Add these two additional parameters in running domain.sh and standalone.sh in the launch.sh file =>  -bmanagement $4
+sudo nano /opt/wildfly/bin/launch.sh
+4: Restart the wildfly
+sudo systemctl restart wildfly
+5: Add this additional parameter in the call to launch.sh => $WILDFLY_CONSOLE_BIND
+sudo nano /etc/systemd/system/wildfly.service
+6: Notify the system about the changes
+sudo systemctl daemon-reload
+7: Restart the wildfly
+sudo systemctl restart wildfly

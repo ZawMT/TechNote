@@ -1,12 +1,38 @@
+cd ~
+To go to the current user's base directory
+
 git add --all
 git : To add all new files to the repository
 
+git commit -a
+git : To commit all the changes
+
 git commit -m 'Text for comments'
 git : To commit the changes with comments
+
+git push
+git : To push the changes to the repository
+
+lsb_release -a
+Linux : Ubuntu : To check Ubuntu version
+
+ssh-keygen -R IP_Address
+Apple: To remove a saved setting from the profile when we got an error trying to get a ssh connection, sample error is like 'ECDSA host key has changed'
 
 sw_version
 Apple : To check Apple OS version
 
 system_profiler SPSoftwareDataType
 Apple : To check Apple OS version and Kernel version
+
+uname
+Linux : Ubuntu : To check the version 
+-a : To give all info
+-r : To get the kernel release
+-v : To get the kernel version (Base OS, Time of compilation) 
+-o : To get the OS
+
+wget
+Linux : To get files from the web servers
+
 
