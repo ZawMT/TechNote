@@ -14,5 +14,7 @@ A mapping can be deleted as follows:
 iptables -t nat -D PREROUTING LINE_NUMBER_FROM_THE_LISTING
 Annex2:
 Though I start the wildfly as the root user, it didn't resolve the issue. When the wildfly is started, there might be a representative user behind.
+Ref:
+https://serverfault.com/questions/112795/how-to-run-a-server-on-port-80-as-a-normal-user-on-linux
 
 
