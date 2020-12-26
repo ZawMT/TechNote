@@ -6,7 +6,7 @@ Linux : To copy data
 > cp /path/to/source/* /path/to/destination 
 > All directories will be left out. To include directories, use -r
 > find /path/to/source -type f -execdir cp "{}" path/to/dest ";" 
-> Another way to copy all (files as well as directories)
+> Another way to copy all (files excluding directories)
 > find /path/to/source -type f -execdir cp "{}" path/to/dest ";"
 > find /path/to/source -not -type d -execdir cp "{}" path/to/dest ";"
 > Note: both approaches above has the particular behaviour especially in the way the directories are copied, so verify it before the real usage
