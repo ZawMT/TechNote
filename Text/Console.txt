@@ -1,15 +1,21 @@
+alias
+To give an alias to a particular command
+> Eg: To give a warning before all deleting: alias rm='rm -i' 
+> Note: The setting above will prompt a warning when the deletion is done as follows: 'rm abc.txt', but it will not prompt for this command 'rm -f abc.txt'
+
 cd ~
 To go to the current user's base directory
 
 cp
 Linux : To copy data
 > cp /path/to/source/* /path/to/destination 
-> All directories will be left out. To include directories, use -r
+> All directories will be left out. To include directories, use -r option
 > find /path/to/source -type f -execdir cp "{}" path/to/dest ";" 
 > Another way to copy all (files excluding directories)
 > find /path/to/source -type f -execdir cp "{}" path/to/dest ";"
 > find /path/to/source -not -type d -execdir cp "{}" path/to/dest ";"
 > Note: both approaches above has the particular behaviour especially in the way the directories are copied, so verify it before the real usage
+> Note: -i option will be useful since it will give a warning in case of any overwriting
 
 git add --all
 git : To add all new files to the repository
