@@ -29,6 +29,11 @@ Linux : Ubuntu : To check Ubuntu version
 netstat -na
 Linux : To check the usage of the ports
 
+scp
+Linux : To copy data to/from the remote location
+> scp [OPTION] [user@]HOST_IP:]Path/To/File [user@]DEST_IP:]Path/To/File
+> when the source/destination is local, then the info like user and IP will not be needed
+
 ssh-keygen -R IP_Address
 Apple: To remove a saved setting from the profile when we got an error trying to get a ssh connection, sample error is like 'ECDSA host key has changed'
 
