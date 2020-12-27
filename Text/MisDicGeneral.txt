@@ -4,6 +4,9 @@ A mnemonic acronym for a set of properties of database transactions intended to 
 ASM
 Application Security Manager : A web application firewall, a product of a American company called //F5 Networks//
 
+Auto-sharding
+Auto-sharding allows the automation of horizontal partition of the data across multiple nodes when talking about the databases such as MongoDB, MySQL.
+
 CAP Theorem
 CAP theorem (also named //Brewer's theorem// after computer scientist //Eric Brewer//), states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees : Consistency, Availability, Partition tolerance
 
@@ -52,6 +55,9 @@ multi-tenancy
 
 NIO vs IO
 IO stands for Input Output, NIO stands for Non-blocking Input Output. In nomral IO or blocking IO or, simply, IO, the IO calls do not return until the IO is complete, but NIO calls returns immediately and the completion of the IO will be notified later. So IO is synchronous and NIO is assynchronous.
+
+Partitioning DB
+There are two types of partitioning: Horizontal and Vertical. Horizontal partitioning will segregate the data by rows. For example, Citizens tables will be partitioned into Citizens1 table which will have all the citizens who were born before 1900, Citizens2 table which will have all the people which were born after 1900. By performing UNION of the two tables, we will have all the data. Each horizontal partication is called a database shard or, simply, shard. Vertical partitioning will save the data in fewer columns, then the additional tables will be used for the addtional data. Normalization can be seen as a type of vertical partitioning, however, vertical partitioning can be applied to the normalized tables to break down further. 
 
 PCI
 Payment Card Industry
