@@ -50,6 +50,9 @@ Local Traffic Manager : A product of a American company called //F5 Networks// f
 multi-tenancy
 //software multitenancy// refers to a software architecture in which a single instance of software runs on a server and serves multiple tenants. A tenant is a group of users who share a common access with specific privileges to the software instance. With a multitenant architecture, a software application is designed to provide every tenant a dedicated share of the instance - including its data, configuration, user management, tenant individual functionality and non-functional properties. Multitenancy contrasts with multi-instance architectures, where separate software instances operate on behalf of different tenants.
 
+NIO vs IO
+IO stands for Input Output, NIO stands for Non-blocking Input Output. In nomral IO or blocking IO or, simply, IO, the IO calls do not return until the IO is complete, but NIO calls returns immediately and the completion of the IO will be notified later. So IO is synchronous and NIO is assynchronous.
+
 PCI
 Payment Card Industry
 
@@ -68,6 +71,9 @@ Run-time type information (C++). Two related keywords are //typeid// and //dynam
 
 SOLID
 A mnemonic acronym for five software design principles: Single responsibility principle, Open-closed principle, Liskov substitution principle, Interface segregation principle, Dependency inversion principle
+
+Throughput
+Throughput is the amount of the service or the product given to a user. For example, the throughput of a web service can be determined by the number of requests that the service can handle within a particular timeframe.
 
 WCF
 Windows Communication Foundation
