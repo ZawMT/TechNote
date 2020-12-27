@@ -3,6 +3,12 @@ To give an alias to a particular command
 > Eg: To give a warning before all deleting: alias rm='rm -i' 
 > Note: The setting above will prompt a warning when the deletion is done as follows: 'rm abc.txt', but it will not prompt for this command 'rm -f abc.txt'
 
+apt-get
+Linux : A package manager which can help the user to perform set up activities (i.e. install, update, etc).
+> Eg: To update the current applications in the server: apt-get update 
+> Eg: To install nodejs: apt-get install nodejs
+> Eg: To install nodejs package manager: apt-get install npm
+
 cd ~
 To go to the current user's base directory
 
