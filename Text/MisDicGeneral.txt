@@ -4,6 +4,9 @@ A mnemonic acronym for a set of properties of database transactions intended to 
 ASM
 Application Security Manager : A web application firewall, a product of a American company called //F5 Networks//
 
+Asymmetric cryptography
+=> PKI
+
 Auto-sharding
 Auto-sharding allows the automation of horizontal partition of the data across multiple nodes when talking about the databases such as MongoDB, MySQL.
 
@@ -25,6 +28,10 @@ Data Protection Impact Assessment : A process to help you identify and minimise 
 ELB
 Enterprise Load Balancer
 => GTM / LTM 
+
+GPG
+Gnu Privacy Guard is an independent implementation of the OpenPGP standards.
+=> PGP
 
 GRASP
 General Responsibility Assignment Software Patterns (or Principles), consist of guidelines for assigning responsibility to classes and objects in object-oriented design
@@ -62,12 +69,24 @@ There are two types of partitioning: Horizontal and Vertical. Horizontal partiti
 PCI
 Payment Card Industry
 
+PGP
+Pretty Good Privacy is public-key encryption.
+=> GPG
+=> PKI
+
+PKI
+Public Key Infrastructure (also known as Public Key Encryption or Asymmetric cryptography) is an encryption technique where two keys or two sets of keys are used: one is private which is never shared and the other public.
+=> Private Key Encryption
+
 POCO
 Plain Old CLR/Class Object : a simple object created in the .NET Common Language Runtime (CLR) that is unencumbered by inheritance or attributes 
 => CLR
 
 POJO
 Plain Old Java Object
+
+Private Key Encryption
+Private Key Encryption is a type of encryption where only a single key is used which is kept private (i.e. shared only among the users who needs to encrypt and decrypt)
 
 reflection
 The ability of a computer program to examine, introspect, and modify its own structure and behavior at runtime
