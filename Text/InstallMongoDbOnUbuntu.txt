@@ -1,0 +1,20 @@
+The following steps are from this link: https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-16-04 where the explanation for the steps are given in more details. When there is an error at step 4 below, the step 5 is done by referring to the link https://docs.opsmanager.mongodb.com/current/tutorial/provisioning-prep/
+
+1: Import the key which is required for the authenticity check of the mongodb package. Running the following command should result in showing 'OK'.
+wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+2: Create a list of file which tells about the repository detail information of mongodb, so later apt command will know where to get the file
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+3: Update the current packages
+sudo apt-get update
+
+4: Install mongodb
+sudo apt-get install -y mongodb-org
+5: If there is any error returned in Step 4, then run the command below to install the mongodb dependencies. Then try to run the step 4 again, and this time there should be no error. 
+sudo apt-get install libcurl3 libgssapi-krb5-2 libkrb5-dbg libldap-2.4-2 libpci3 libsasl2-2 snmp liblzma5 openssl
+
+Now the mongodb can be started already as follows: sudo systemctl start mongod
+As usual, the status can be checked as follows: sudo systemctl status mongod
+Mongodb can be set up to start automatically when the server starts as follows: sudo systemctl enable mongod
+
+If there is any need to allow access through a firewall, it can be set up by a command as follows: sudo ufw allow from your_other_server_ip/32 to any port 27017
+The set up above can be checked as follows: sudo ufw status
