@@ -35,6 +35,9 @@ git : To commit the changes with comments
 git push
 git : To push the changes to the repository
 
+lint
+Linux / Unix : a tool to check the portability of C/C++ implementation
+
 lsb_release -a
 Linux : Ubuntu : To check Ubuntu version
 
@@ -54,6 +57,10 @@ Apple : To check Apple OS version
 
 system_profiler SPSoftwareDataType
 Apple : To check Apple OS version and Kernel version
+
+tee
+It is a command asking to show the output as well as to save it 
+> Eg: lint myapp.c | tee myapp.lint 
 
 uname
 Linux : Ubuntu : To check the version 
