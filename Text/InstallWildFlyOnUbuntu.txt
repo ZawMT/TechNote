@@ -1,4 +1,5 @@
-The following steps are from this link: https://vitux.com/install-and-configure-wildfly-jboss-on-ubuntu/ where the explanation for the steps are given in more details.
+Installation steps below are tested on Ubuntu 16.04
+The following steps are from this link: https://vitux.com/install-and-configure-wildfly-jboss-on-ubuntu/ where the explanation for the steps are given in more details. 
 
 1: Update the current applications to the most recent
 sudo apt-get update
@@ -35,7 +36,7 @@ sudo systemctl start wildfly
 17: The running status of WildFly can be checked
 sudo systemctl status wildfly
 
-Configure the wildfly server
+Optional: Configure the wildfly server (If the Firewall is active/on)
 1: Allow the traffic on 8080
 sudo ufw allow 8080/tcp
 After this, the access to the wildfly server should work @ http://IP_ADDRESS:8080
@@ -44,15 +45,14 @@ Configure the wildfly admin console (http://IP_ADDRESS:9990)
 1: Add an admin user 
 sudo /opt/wildfly/bin/add-user.sh
 Follow the process accordingly
+Then, to be able to access it from the web console, proceed with the following steps.
 2: Add this line in wildfly.conf => WILDFLY_CONSOLE_BIND=0.0.0.0
 sudo nano /etc/wildfly/wildfly.conf
-3: Add these two additional parameters in running domain.sh and standalone.sh in the launch.sh file =>  -bmanagement $4
-sudo nano /opt/wildfly/bin/launch.sh
-4: Restart the wildfly
-sudo systemctl restart wildfly
-5: Add this additional parameter in the call to launch.sh => $WILDFLY_CONSOLE_BIND
+3: Add this additional parameter in the call to launch.sh => $WILDFLY_CONSOLE_BIND
 sudo nano /etc/systemd/system/wildfly.service
-6: Notify the system about the changes
+4: Add these two additional parameters in running domain.sh and standalone.sh in the launch.sh file =>  -bmanagement $4
+sudo nano /opt/wildfly/bin/launch.sh
+5: Notify the system about the changes
 sudo systemctl daemon-reload
-7: Restart the wildfly
+6: Restart the wildfly
 sudo systemctl restart wildfly

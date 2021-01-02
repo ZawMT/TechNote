@@ -1,4 +1,17 @@
 Problem:
+SSH connection
+Message:
+ECDSA host key for IP_ADDRESS has changed and you have requested strict checking.
+ECDSA => Elliptic Curve Digital Signature Algorithm
+Reason:
+OS (e.g. Apple) permanently added the IP_ADDRESS (ECDSA) to the list of known hosts as per our confirmation while trying to connect to the IP_ADDRESS and later there was a change to that IP and/or its environment.
+Solution:
+Remove the IP_ARESS from the recored list as follows:
+ssh-keygen -R IP_ADDRESS
+Annex1:
+We can opt out not to add to the list of known hosts
+
+Problem:
 WildFly
 Using port 80
 In Linux
@@ -16,5 +29,3 @@ Annex2:
 Though I start the wildfly as the root user, it didn't resolve the issue. When the wildfly is started, there might be a representative user behind.
 Ref:
 https://serverfault.com/questions/112795/how-to-run-a-server-on-port-80-as-a-normal-user-on-linux
-
-
