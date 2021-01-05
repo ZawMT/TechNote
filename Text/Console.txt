@@ -68,6 +68,7 @@ Linux : Ubuntu : To check the version
 -r : To get the kernel release
 -v : To get the kernel version (Base OS, Time of compilation) 
 -o : To get the OS
+-m : To check 32 bit or 64 bit
 
 wget
 Linux : To get files from the web servers
