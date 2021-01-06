@@ -62,6 +62,10 @@ tee
 It is a command asking to show the output as well as to save it 
 > Eg: lint myapp.c | tee myapp.lint 
 
+top
+Linux: To see the status of the processes (how memeory is consumed by each, etc.)
+> htop will give some additional info. If it is not installed, then it can be installed by following the suggestion given by the OS, e.g. in Ubuntu, the OS will suggest to run 'apt install htop'
+
 uname
 Linux : Ubuntu : To check the version 
 -a : To give all info
