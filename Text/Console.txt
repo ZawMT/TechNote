@@ -77,4 +77,9 @@ Linux : Ubuntu : To check the version
 wget
 Linux : To get files from the web servers
 
+which
+Linux: To know which is the installation folder of a particular application
+>Eg: which java => This will return a result like /usr/bin/java 
+>Eg: which mongod 
+
 

@@ -39,3 +39,79 @@ sudo service mongod stop
 sudo apt-get purge mongodb-org*
 sudo rm -r /var/log/mongodb
 sudo rm -r /var/lib/mongodb
+
+======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 
+=======                                            Documented from the second try                                     =======
+======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 2 ******* ======= 
+
+Installing MongoDB
+================
+Ref: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/. Similar steps already mentioned above are not explained in detail.
+
+1: wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+Outcome => OK
+2: echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+Outcome => deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse
+3: sudo apt-get update
+4: To install lastest version 
+sudo apt-get install -y mongodb-org
+To install a particular version => sudo apt-get install -y mongodb-org=4.4.2 mongodb-org-server=4.4.2 mongodb-org-shell=4.4.2 mongodb-org-mongos=4.4.2 mongodb-org-tools=4.4.2
+5: /etc/mongod.conf can be edited (to change 127.0.0.1 to 0.0.0.0), then the mongodb can be started as 'sudo systemctl start mongod' and status can be checked as 'sudo systemctl status mongod'. Accessing from the browser such as http://IP_ADDRESS:27017 will result with the following text:
+It looks like you are trying to access MongoDB over HTTP on the native driver port.
+
+User set up
+=========
+Ref: https://docs.mongodb.com/manual/tutorial/enable-authentication/
+=== Set up the admin user ===
+1: Run mongoDB without access control
+mongod --port 27017 --dbpath /var/lib/mongodb
+2: Leave the terminal which run Step 1 still opened, then in a new terminal run mongo which is the mongoDB client shell
+mongo --port 27017
+3: Then the user can be created by running the scripts below (Use a password as appropriate)
+use admin
+db.createUser(
+  {
+    user: "myUserAdmin",
+    pwd: passwordPrompt(), // or cleartext password
+    roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]
+  }
+)
+// Just in one line for easy copy: db.createUser({user: "myUserAdmin", pwd: passwordPrompt(), roles: [ { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ]})
+4: Since the admin user is already set up, the DB can be started with access control. To do so, first, we have to restart the mongoDB instance. Running the following command from the mongo shell will stop the mongoDB.
+db.adminCommand( { shutdown: 1 } )
+After running this, the outcome can be checked in the terminal which was opened for Step 1. The MongoDB is already shut down.
+=== Set up the DB user ===
+5: Now MongoDB can be run again with access control. It's the same command in the Step 1, but --auth is added.
+mongod --auth --port 27017 --dbpath /var/lib/mongodb
+6: Now we can run the mongo shell again, as follows:
+mongo --port 27017
+use admin
+db.auth("myUserAdmin", passwordPrompt())
+7: After the successful login, we can create the DB User. In the following example, a user 'myTester' was created for DB 'test'.
+use test
+db.createUser(
+  {
+    user: "myTester",
+    pwd:  passwordPrompt(),   // or cleartext password
+    roles: [ { role: "readWrite", db: "test" },
+             { role: "read", db: "reporting" } ]
+  }
+)
+// Just in one line for easy copy:  db.createUser({user: "myTester", pwd:  passwordPrompt(), roles: [ { role: "readWrite", db: "test" }, { role: "read", db: "reporting" } ]})
+=== Do some DB operations ===
+8: Now the DB User 'myTester' was already created. We can use this user to connect to DB, and do the DB operations such as insert, update, etc. To connect as this user, we can exit from the current mongo shell or we can use a new one.
+mongo --port 27017
+use test
+db.auth("myTester", passwordPrompt())
+9: After the successful login, some DB operations can be tried. 
+For example, add one document/record/row in the 'foo' collections/table: db.foo.insert( { x: 1, y: 1 } )
+Then, to check the data in the 'foo' collections: db.foo.find({})
+=== Next step : To use mongo to connect to mongod run from the standard way (i.e. sudo systemctl start mongod) ===
+Above operation is using the mongoDB running from command line as 'mongod --auth --port 27017 --dbpath /var/lib/mongodb'. To use the standard one started by the command 'sudo systemctl start mongod', we need to change the /etc/mongod.conf
+1: Enable the security section and add the line below:
+authorizaton: enabled
+2: Then try to start the mongoDB with 'sudo systemctl start mongod'. This might likely cause an error due to the permission over some mongodb folder and file. So, change the permission as follows (setting the owner as mongodb). Then restart the mongod.
+chown -R mongodb:mongodb /var/lib/mongodb
+chown mongodb:mongodb /tmp/mongodb-27017.sock
+sudo service mongod restart
+Finally, after this, MongoDB should be able to connect from the front UI like Mongo Management Studio 

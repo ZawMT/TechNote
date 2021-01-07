@@ -44,6 +44,9 @@ JDO
 Java Data Objects : A specification of Java object persistence 
 => POJO
 
+JSON
+JavaScript Object Notation
+
 JSR
 Java Specification Requests : Basically change requests for the Java language, libraries and other components. It's all part of the Java Community Process, whereby interested parties can put forward their ideas for enhancements and (hopefully) have them taken up and acted upon.
 
@@ -91,8 +94,16 @@ Private Key Encryption is a type of encryption where only a single key is used w
 reflection
 The ability of a computer program to examine, introspect, and modify its own structure and behavior at runtime
 
+REST
+Representational State Transfer
+=> SOAP
+
 RTTI
 Run-time type information (C++). Two related keywords are //typeid// and //dynamic_cast//.
+
+SOAP
+Simple Object Access Protocol
+=> REST
 
 SOLID
 A mnemonic acronym for five software design principles: Single responsibility principle, Open-closed principle, Liskov substitution principle, Interface segregation principle, Dependency inversion principle
