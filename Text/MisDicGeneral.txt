@@ -1,6 +1,9 @@
 ACID 
 A mnemonic acronym for a set of properties of database transactions intended to guarantee data validity despite errors, power failures, and other mishaps : atomicity, consistency, isolation, durability
 
+air gap
+An //air-gapped// computer or network is one that has no network interfaces, either wired or wireless, connected to outside networks. To move data between the outside world and the air-gapped system, it is necessary to write data to a physical medium such as a thumbdrive, and physically move it between computers.
+
 ASM
 Application Security Manager : A web application firewall, a product of a American company called //F5 Networks//
 
